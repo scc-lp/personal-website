@@ -5,7 +5,7 @@
       <div v-for="item in navList" :key="item.name" class="nav-item__item"
         :class="{ 'nav-item__item--active': item.name === activeItem }" @mouseenter="showTooltip(item.name)"
         @mouseleave="hideTooltip(item.name)" @click="handleClick(item.name)">
-        <el-tooltip effect="dark" placement="top" manual :visible="visibleTooltips[item.name]" :show-after="1000">
+        <el-tooltip effect="dark" placement="top" manual :visible="visibleTooltips[item.name]" :show-after="500">
           <template #content>
             <span>{{ item.name }}</span>
           </template>
@@ -37,7 +37,7 @@ function showTooltip(name: string) {
   // 设置1.5秒延迟
   tooltipTimers.value[name] = window.setTimeout(() => {
     visibleTooltips.value[name] = true;
-  }, 1500);
+  }, 500);
 }
 
 function hideTooltip(name: string) {

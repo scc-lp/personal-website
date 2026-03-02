@@ -5,6 +5,7 @@
     </div>
     <div class="center">
       <HomeMain />
+      <Project />
     </div>
     <div class="nav">
       <Nav />
@@ -16,7 +17,7 @@
 import Resume from '../components/Resume.vue'
 import Nav from '../components/Nav.vue'
 import HomeMain from '../components/HomeMain.vue'
-
+import Project from '../components/Project.vue'
 
 </script>
 
@@ -33,6 +34,7 @@ import HomeMain from '../components/HomeMain.vue'
 
   .center{
     flex: 1;
+    overflow-y: auto;
     // background-color: green;
   }
 

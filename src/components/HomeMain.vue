@@ -27,9 +27,10 @@
 <style scoped lang="scss">
 .home-main-container {
     width: 100%;
-    height: 100%;
+    height: 460px;
     padding: 0 20px;
     box-sizing: border-box;
+    margin-bottom: 100px;
 
     .top-banner {
         width: 100%;
@@ -59,11 +60,12 @@
             }
         }
 
-        .pic{
+        .pic {
             flex: 1;
             box-sizing: border-box;
             padding-left: 80px;
-            img{
+
+            img {
                 height: 460px;
             }
         }

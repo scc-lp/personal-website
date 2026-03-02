@@ -38,6 +38,7 @@ import { linkList, personInfo, skills } from '@/data/personInfo';
   background-color: #fff;
   padding: 20px;
   box-sizing: border-box;
+  overflow: hidden;
 
   .personalProfile {
     width: 100%;
