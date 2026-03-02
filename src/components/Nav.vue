@@ -4,7 +4,7 @@
     <div class="nav-item">
       <div v-for="item in navList" :key="item.name" class="nav-item__item"
         :class="{ 'nav-item__item--active': item.name === activeItem }" @mouseenter="showTooltip(item.name)"
-        @mouseleave="hideTooltip(item.name)" @click="handleClick(item.name)">
+        @mouseleave="hideTooltip(item.name)" @click="handleClick(item.name, item?.link)">
         <el-tooltip effect="dark" placement="top" manual :visible="visibleTooltips[item.name]" :show-after="500">
           <template #content>
             <span>{{ item.name }}</span>
@@ -21,6 +21,9 @@ import navList from '@/data/nav.ts';
 import ThemeSwitching from './ThemeSwitching.vue';
 import { useThemeStore } from '@/stores/theme';
 import { computed, ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const themeStore = useThemeStore();
 const isDark = computed(() => themeStore.isDark);
@@ -49,8 +52,11 @@ function hideTooltip(name: string) {
   visibleTooltips.value[name] = false;
 }
 
-function handleClick(name: string) {
+function handleClick(name: string, link?: string) {
   activeItem.value = name;
+  if (link) {
+    router.push(link);
+  }
 }
 </script>
 
@@ -135,6 +141,7 @@ function handleClick(name: string) {
     height: 0;
     opacity: 1;
   }
+
   100% {
     width: 100px;
     height: 100px;
